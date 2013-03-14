@@ -5,10 +5,10 @@
 .statsfc_highlight td {				font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
 .statsfc_footer {					display: block !important; }
 
-.statsfc_form span {				display: inline-block; width: 1.5em; margin-right: 5px; text-align: center; border-radius: 5px; }
-.statsfc_form .statsfc_w {			background: #2A2; }
-.statsfc_form .statsfc_d {			background: orange; }
-.statsfc_form .statsfc_l {			background: #F33; }
+.statsfc_form_results span {		display: inline-block; width: 1.5em; margin-right: 5px; text-align: center; border-radius: 5px; }
+.statsfc_w {						background: #2A2; }
+.statsfc_d {						background: orange; }
+.statsfc_l {						background: #F33; }
 
 .statsfc_team {						width: 100%; background-repeat: no-repeat; background-position: center left; background-size: 20px 20px; line-height: 25px; padding-left: 25px !important; }
 .statsfc_badge_arsenal {			background-image: url(../i/arsenal.png); }

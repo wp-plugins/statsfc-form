@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,10 +15,6 @@ This widget will place a live Premier League form guide in your website.
 Add a Premier League form guide to your WordPress website. To request an API key sign up for free at [statsfc.com/developers](https://statsfc.com/developers).
 
 For a demo, check out [wp.statsfc.com](http://wp.statsfc.com).
-
-Other widgets:
-
-- [StatsFC Table](http://wordpress.org/extend/plugins/statsfc-table/) - Premier League table
 
 == Installation ==
 
@@ -45,7 +41,9 @@ If you want to place the widget into a page rather than a sidebar:
 
 == Changelog ==
 
+1.0.1:
 
+- Fixed CSS bug
 
 == Upgrade notice ==
 

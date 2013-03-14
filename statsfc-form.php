@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/developers
 Description: StatsFC Form Guide
-Version: 1.0.1
+Version: 1.0.2
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -139,45 +139,45 @@ class StatsFC_Form extends WP_Widget {
 			}
 
 			if ($default_css) {
-				wp_register_style('prefix-css', plugins_url('c/all.css', __FILE__));
-				wp_enqueue_style('prefix-css');
+				wp_register_style(FORM_ID . '-css', plugins_url('c/all.css', __FILE__));
+				wp_enqueue_style(FORM_ID . '-css');
 			}
 			?>
-			<table class="statsfc_form">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Team</th>
-						<th class="statsfc_numeric">Last 6 Results</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					foreach ($json as $row) {
-						$classes = array();
-
-						if (! empty($highlight) && $highlight == $row->team) {
-							$classes[] = 'statsfc_highlight';
-						}
-
-						// {"position":1,"team_id":10260,"team":"Manchester United","form":["D","W","W","W","W","W"]}
-						?>
-						<tr<?php echo (! empty($classes) ? ' class="' . implode(' ', $classes) . '"' : ''); ?>>
-							<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
-							<td class="statsfc_team statsfc_badge_<?php echo str_replace(' ', '', strtolower($row->team)); ?>"><?php echo esc_attr($row->teamshort); ?></td>
-							<td class="statsfc_form_results"><?php
-								foreach ($row->form as $result) {
-									echo '<span class="statsfc_' . strtolower($result) . '">' . esc_attr($result) . '</span>';
-								}
-							?></td>
+			<div class="statsfc_form">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Team</th>
+							<th class="statsfc_numeric">Last 6 Results</th>
 						</tr>
-					<?php
-					}
-					?>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<?php
+						foreach ($json as $row) {
+							$classes = array();
 
-			<p class="statsfc_footer"><small>Powered by <a href="https://statsfc.com" target="_blank" title="Football widgets and API">StatsFC.com</a></small></p>
+							if (! empty($highlight) && $highlight == $row->team) {
+								$classes[] = 'statsfc_highlight';
+							}
+							?>
+							<tr<?php echo (! empty($classes) ? ' class="' . implode(' ', $classes) . '"' : ''); ?>>
+								<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
+								<td class="statsfc_team statsfc_badge_<?php echo str_replace(' ', '', strtolower($row->team)); ?>"><?php echo esc_attr($row->teamshort); ?></td>
+								<td class="statsfc_form_results"><?php
+									foreach ($row->form as $result) {
+										echo '<span class="statsfc_' . strtolower($result) . '">' . esc_attr($result) . '</span>';
+									}
+								?></td>
+							</tr>
+						<?php
+						}
+						?>
+					</tbody>
+				</table>
+
+				<p class="statsfc_footer"><small>Powered by <a href="https://statsfc.com" target="_blank" title="Football widgets and API">StatsFC.com</a></small></p>
+			</div>
 		<?php
 		} catch (Exception $e) {
 			echo '<p class="statsfc_error">' . esc_attr($e->getMessage()) .'</p>' . PHP_EOL;

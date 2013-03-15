@@ -25,8 +25,8 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('FORM_ID',	'StatsFC_Form');
-define('FORM_NAME',	'StatsFC Form');
+define('STATSFC_FORM_ID',	'StatsFC_Form');
+define('STATSFC_FORM_NAME',	'StatsFC Form');
 
 /**
  * Adds StatsFC widget.
@@ -36,7 +36,7 @@ class StatsFC_Form extends WP_Widget {
 	 * Register widget with WordPress.
 	 */
 	public function __construct() {
-		parent::__construct(FORM_ID, FORM_NAME, array('description' => 'StatsFC League Table'));
+		parent::__construct(STATSFC_FORM_ID, STATSFC_FORM_NAME, array('description' => 'StatsFC League Table'));
 	}
 
 	/**
@@ -48,10 +48,10 @@ class StatsFC_Form extends WP_Widget {
 	 */
 	public function form($instance) {
 		$defaults = array(
-			'title'			=> __('Form Guide', FORM_ID),
-			'api_key'		=> __('', FORM_ID),
-			'highlight'		=> __('', FORM_ID),
-			'default_css'	=> __('', FORM_ID)
+			'title'			=> __('Form Guide', STATSFC_FORM_ID),
+			'api_key'		=> __('', STATSFC_FORM_ID),
+			'highlight'		=> __('', STATSFC_FORM_ID),
+			'default_css'	=> __('', STATSFC_FORM_ID)
 		);
 
 		$instance		= wp_parse_args((array) $instance, $defaults);
@@ -62,19 +62,19 @@ class StatsFC_Form extends WP_Widget {
 		?>
 		<p>
 			<label>
-				<?php _e('Title', FORM_ID); ?>:
+				<?php _e('Title', STATSFC_FORM_ID); ?>:
 				<input class="widefat" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
 			</label>
 		</p>
 		<p>
 			<label>
-				<?php _e('API key', FORM_ID); ?>:
+				<?php _e('API key', STATSFC_FORM_ID); ?>:
 				<input class="widefat" name="<?php echo $this->get_field_name('api_key'); ?>" type="text" value="<?php echo esc_attr($api_key); ?>">
 			</label>
 		</p>
 		<p>
 			<label>
-				<?php _e('Highlight', FORM_ID); ?>:
+				<?php _e('Highlight', STATSFC_FORM_ID); ?>:
 				<?php
 				$data = file_get_contents('https://api.statsfc.com/premier-league/teams.json?key=' . (! empty($api_key) ? $api_key : 'free'));
 
@@ -107,7 +107,7 @@ class StatsFC_Form extends WP_Widget {
 		</p>
 		<p>
 			<label>
-				<?php _e('Use default CSS?', FORM_ID); ?>
+				<?php _e('Use default CSS?', STATSFC_FORM_ID); ?>
 				<input type="checkbox" name="<?php echo $this->get_field_name('default_css'); ?>"<?php echo ($default_css == 'on' ? ' checked' : ''); ?>>
 			</label>
 		</p>
@@ -166,8 +166,8 @@ class StatsFC_Form extends WP_Widget {
 			}
 
 			if ($default_css) {
-				wp_register_style(FORM_ID . '-css', plugins_url('c/all.css', __FILE__));
-				wp_enqueue_style(FORM_ID . '-css');
+				wp_register_style(STATSFC_FORM_ID . '-css', plugins_url('c/all.css', __FILE__));
+				wp_enqueue_style(STATSFC_FORM_ID . '-css');
 			}
 			?>
 			<div class="statsfc_form">
@@ -217,5 +217,5 @@ class StatsFC_Form extends WP_Widget {
 }
 
 // register StatsFC widget
-add_action('widgets_init', create_function('', 'register_widget("' . FORM_ID . '");'));
+add_action('widgets_init', create_function('', 'register_widget("' . STATSFC_FORM_ID . '");'));
 ?>

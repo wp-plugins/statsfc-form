@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/developers
 Description: StatsFC Form Guide
-Version: 1.0.3
+Version: 1.0.4
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -75,7 +75,34 @@ class StatsFC_Form extends WP_Widget {
 		<p>
 			<label>
 				<?php _e('Highlight', FORM_ID); ?>:
-				<input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>">
+				<?php
+				$data = file_get_contents('https://api.statsfc.com/premier-league/teams.json?key=' . (! empty($api_key) ? $api_key : 'free'));
+
+				try {
+					if (empty($data)) {
+						throw new Exception('There was an error connecting to the StatsFC API');
+					}
+
+					$json = json_decode($data);
+					if (isset($json->error)) {
+						throw new Exception($json->error);
+					}
+					?>
+					<select class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>">
+						<option></option>
+						<?php
+						foreach ($json as $team) {
+							echo '<option value="' . esc_attr($team->name) . '"' . ($team->name == $highlight ? ' selected' : '') . '>' . esc_attr($team->name) . '</option>' . PHP_EOL;
+						}
+						?>
+					</select>
+				<?php
+				} catch (Exception $e) {
+				?>
+					<input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>">
+				<?php
+				}
+				?>
 			</label>
 		</p>
 		<p>

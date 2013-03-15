@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/developers
 Description: StatsFC Form Guide
-Version: 1.0.2
+Version: 1.0.3
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -149,7 +149,7 @@ class StatsFC_Form extends WP_Widget {
 						<tr>
 							<th></th>
 							<th>Team</th>
-							<th class="statsfc_numeric">Last 6 Results</th>
+							<th colspan="6" class="statsfc_numeric">Last 6 Results</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -164,11 +164,13 @@ class StatsFC_Form extends WP_Widget {
 							<tr<?php echo (! empty($classes) ? ' class="' . implode(' ', $classes) . '"' : ''); ?>>
 								<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
 								<td class="statsfc_team statsfc_badge_<?php echo str_replace(' ', '', strtolower($row->team)); ?>"><?php echo esc_attr($row->teamshort); ?></td>
-								<td class="statsfc_form_results"><?php
-									foreach ($row->form as $result) {
-										echo '<span class="statsfc_' . strtolower($result) . '">' . esc_attr($result) . '</span>';
-									}
-								?></td>
+								<?php
+								foreach ($row->form as $result) {
+								?>
+									<td class="statsfc_form_results"><span class="statsfc_<?php echo strtolower($result); ?>"><?php echo esc_attr($result); ?></span></td>
+								<?php
+								}
+								?>
 							</tr>
 						<?php
 						}

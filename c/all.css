@@ -1,11 +1,12 @@
-.statsfc_form {							display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; }
+.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; }
 .statsfc_form th,
 .statsfc_form td {						text-align: left; padding: 2px 5px; border-bottom: 1px solid silver; }
 .statsfc_form .statsfc_numeric {		text-align: right; }
 .statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
 .statsfc_form .statsfc_footer {			display: block !important; }
 
-.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; margin-right: 5px; text-align: center; border-radius: 5px; }
+.statsfc_form .statsfc_form_results {		padding: 2px; }
+.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; }
 .statsfc_form .statsfc_w {					background: #2A2; }
 .statsfc_form .statsfc_d {					background: orange; }
 .statsfc_form .statsfc_l {					background: #F33; }

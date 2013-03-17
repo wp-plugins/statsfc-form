@@ -1,0 +1,34 @@
+.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; }
+.statsfc_form th,
+.statsfc_form td {						text-align: left; padding: 2px 5px; border-bottom: 1px solid silver; }
+.statsfc_form .statsfc_numeric {		text-align: right; }
+.statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
+.statsfc_form .statsfc_footer {			display: block !important; }
+
+.statsfc_form .statsfc_form_results {		padding: 2px; }
+.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; }
+.statsfc_form .statsfc_w {					background: #2A2; }
+.statsfc_form .statsfc_d {					background: orange; }
+.statsfc_form .statsfc_l {					background: #F33; }
+
+.statsfc_form .statsfc_team {						width: 100%; background-repeat: no-repeat; background-position: center left; background-size: 20px 20px; line-height: 25px; padding-left: 25px !important; }
+.statsfc_form .statsfc_badge_arsenal {				background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/arsenal.png); }
+.statsfc_form .statsfc_badge_astonvilla {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/aston-villa.png); }
+.statsfc_form .statsfc_badge_chelsea {				background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/chelsea.png); }
+.statsfc_form .statsfc_badge_everton {				background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/everton.png); }
+.statsfc_form .statsfc_badge_fulham {				background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/fulham.png); }
+.statsfc_form .statsfc_badge_liverpool {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/liverpool.png); }
+.statsfc_form .statsfc_badge_manchestercity {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/manchester-city.png); }
+.statsfc_form .statsfc_badge_manchesterunited {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/manchester-united.png); }
+.statsfc_form .statsfc_badge_newcastleunited {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/newcastle-united.png); }
+.statsfc_form .statsfc_badge_norwichcity {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/norwich-city.png); }
+.statsfc_form .statsfc_badge_queensparkrangers {	background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/queens-park-rangers.png); }
+.statsfc_form .statsfc_badge_reading {				background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/reading.png); }
+.statsfc_form .statsfc_badge_southampton {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/southampton.png); }
+.statsfc_form .statsfc_badge_stokecity {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/stoke-city.png); }
+.statsfc_form .statsfc_badge_sunderland {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/sunderland.png); }
+.statsfc_form .statsfc_badge_swanseacity {			background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/swansea-city.png); }
+.statsfc_form .statsfc_badge_tottenhamhotspur {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/tottenham-hotspur.png); }
+.statsfc_form .statsfc_badge_westbromwichalbion {	background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/west-bromwich-albion.png); }
+.statsfc_form .statsfc_badge_westhamunited {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/west-ham-united.png); }
+.statsfc_form .statsfc_badge_wiganathletic {		background-image: url(http://07e7065c82a98efc40aa-75708a17f9f791e155bf324b88c25d79.r61.cf3.rackcdn.com/wigan-athletic.png); }

@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/developers
 Description: StatsFC Form Guide
-Version: 1.0.5
+Version: 1.0.6
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -50,6 +50,7 @@ class StatsFC_Form extends WP_Widget {
 		$defaults = array(
 			'title'			=> __('Form Guide', STATSFC_FORM_ID),
 			'api_key'		=> __('', STATSFC_FORM_ID),
+			'team'			=> __('', STATSFC_FORM_ID),
 			'highlight'		=> __('', STATSFC_FORM_ID),
 			'default_css'	=> __('', STATSFC_FORM_ID)
 		);
@@ -57,8 +58,11 @@ class StatsFC_Form extends WP_Widget {
 		$instance		= wp_parse_args((array) $instance, $defaults);
 		$title			= strip_tags($instance['title']);
 		$api_key		= strip_tags($instance['api_key']);
+		$team			= strip_tags($instance['team']);
 		$highlight		= strip_tags($instance['highlight']);
 		$default_css	= strip_tags($instance['default_css']);
+
+		$teams = $this->_teamsFromAPI($api_key);
 		?>
 		<p>
 			<label>
@@ -74,30 +78,43 @@ class StatsFC_Form extends WP_Widget {
 		</p>
 		<p>
 			<label>
-				<?php _e('Highlight', STATSFC_FORM_ID); ?>:
+				<?php _e('Team', STATSFC_FORM_ID); ?>:
 				<?php
-				$data = file_get_contents('https://api.statsfc.com/premier-league/teams.json?key=' . (! empty($api_key) ? $api_key : 'free'));
-
-				try {
-					if (empty($data)) {
-						throw new Exception('There was an error connecting to the StatsFC API');
-					}
-
-					$json = json_decode($data);
-					if (isset($json->error)) {
-						throw new Exception($json->error);
-					}
-					?>
-					<select class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>">
+				if ($teams !== false) {
+				?>
+					<select class="widefat" name="<?php echo $this->get_field_name('team'); ?>">
 						<option></option>
 						<?php
-						foreach ($json as $team) {
-							echo '<option value="' . esc_attr($team->name) . '"' . ($team->name == $highlight ? ' selected' : '') . '>' . esc_attr($team->name) . '</option>' . PHP_EOL;
+						foreach ($teams as $row) {
+							echo '<option value="' . esc_attr($row->name) . '"' . ($row->name == $team ? ' selected' : '') . '>' . esc_attr($row->name) . '</option>' . PHP_EOL;
 						}
 						?>
 					</select>
 				<?php
-				} catch (Exception $e) {
+				} else {
+				?>
+					<input class="widefat" name="<?php echo $this->get_field_name('team'); ?>" type="text" value="<?php echo esc_attr($team); ?>">
+				<?php
+				}
+				?>
+			</label>
+		</p>
+		<p>
+			<label>
+				<?php _e('Highlight', STATSFC_FORM_ID); ?>:
+				<?php
+				if ($teams !== false) {
+				?>
+					<select class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>">
+						<option></option>
+						<?php
+						foreach ($teams as $row) {
+							echo '<option value="' . esc_attr($row->name) . '"' . ($row->name == $highlight ? ' selected' : '') . '>' . esc_attr($row->name) . '</option>' . PHP_EOL;
+						}
+						?>
+					</select>
+				<?php
+				} else {
 				?>
 					<input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>">
 				<?php
@@ -114,6 +131,21 @@ class StatsFC_Form extends WP_Widget {
 	<?php
 	}
 
+	private function _teamsFromAPI($key) {
+		$data = file_get_contents('https://api.statsfc.com/premier-league/teams.json?key=' . (! empty($key) ? $key : 'free'));
+
+		if (empty($data)) {
+			return false;
+		}
+
+		$json = json_decode($data);
+		if (isset($json->error)) {
+			return false;
+		}
+
+		return $json;
+	}
+
 	/**
 	 * Sanitize widget form values as they are saved.
 	 *
@@ -128,6 +160,7 @@ class StatsFC_Form extends WP_Widget {
 		$instance					= $old_instance;
 		$instance['title']			= strip_tags($new_instance['title']);
 		$instance['api_key']		= strip_tags($new_instance['api_key']);
+		$instance['team']			= strip_tags($new_instance['team']);
 		$instance['highlight']		= strip_tags($new_instance['highlight']);
 		$instance['default_css']	= strip_tags($new_instance['default_css']);
 
@@ -147,6 +180,7 @@ class StatsFC_Form extends WP_Widget {
 
 		$title			= apply_filters('widget_title', $instance['title']);
 		$api_key		= $instance['api_key'];
+		$team			= $instance['team'];
 		$highlight		= $instance['highlight'];
 		$default_css	= $instance['default_css'];
 
@@ -172,16 +206,26 @@ class StatsFC_Form extends WP_Widget {
 			?>
 			<div class="statsfc_form">
 				<table>
-					<thead>
-						<tr>
-							<th></th>
-							<th>Team</th>
-							<th colspan="6" class="statsfc_numeric">Last 6 Results</th>
-						</tr>
-					</thead>
+					<?php
+					if (empty($team)) {
+					?>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Team</th>
+								<th colspan="6" class="statsfc_numeric">Last 6 Results</th>
+							</tr>
+						</thead>
+					<?php
+					}
+					?>
 					<tbody>
 						<?php
 						foreach ($json as $row) {
+							if (! empty($team) && $team !== $row->team) {
+								continue;
+							}
+
 							$classes = array();
 
 							if (! empty($highlight) && $highlight == $row->team) {
@@ -189,7 +233,13 @@ class StatsFC_Form extends WP_Widget {
 							}
 							?>
 							<tr<?php echo (! empty($classes) ? ' class="' . implode(' ', $classes) . '"' : ''); ?>>
-								<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
+								<?php
+								if (empty($team)) {
+								?>
+									<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
+								<?php
+								}
+								?>
 								<td class="statsfc_team statsfc_badge_<?php echo str_replace(' ', '', strtolower($row->team)); ?>"><?php echo esc_attr($row->teamshort); ?></td>
 								<?php
 								foreach ($row->form as $result) {

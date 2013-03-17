@@ -6,7 +6,7 @@
 .statsfc_form .statsfc_footer {			display: block !important; text-align: right; }
 
 .statsfc_form .statsfc_form_results {		padding: 2px; }
-.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; }
+.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; color: #f8f8f8; text-shadow: 1px 1px 2px #111; }
 .statsfc_form .statsfc_w {					background: #2A2; }
 .statsfc_form .statsfc_d {					background: orange; }
 .statsfc_form .statsfc_l {					background: #F33; }

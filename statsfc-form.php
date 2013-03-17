@@ -205,7 +205,7 @@ class StatsFC_Form extends WP_Widget {
 					</tbody>
 				</table>
 
-				<p class="statsfc_footer"><small>Powered by <a href="https://statsfc.com" target="_blank" title="Football widgets and API">StatsFC.com</a></small></p>
+				<p class="statsfc_footer"><small>Powered by StatsFC.com</small></p>
 			</div>
 		<?php
 		} catch (Exception $e) {

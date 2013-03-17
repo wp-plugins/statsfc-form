@@ -3,7 +3,7 @@
 .statsfc_form td {						text-align: left; padding: 2px 5px; border-bottom: 1px solid silver; }
 .statsfc_form .statsfc_numeric {		text-align: right; }
 .statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
-.statsfc_form .statsfc_footer {			display: block !important; }
+.statsfc_form .statsfc_footer {			display: block !important; text-align: right; }
 
 .statsfc_form .statsfc_form_results {		padding: 2px; }
 .statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; }

@@ -1,9 +1,9 @@
-.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; }
+.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; margin-bottom: 0; }
 .statsfc_form th,
 .statsfc_form td {						text-align: left; padding: 2px 5px; border-bottom: 1px solid silver; }
 .statsfc_form .statsfc_numeric {		text-align: right; }
 .statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
-.statsfc_form .statsfc_footer {			display: block !important; text-align: right; }
+.statsfc_form .statsfc_footer {			display: block !important; text-align: right; margin-top: 0; padding: 2px 5px; }
 
 .statsfc_form .statsfc_form_results {		padding: 2px; }
 .statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; color: #f8f8f8; text-shadow: 1px 1px 2px #111; }

@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/developers
 Description: StatsFC Form Guide
-Version: 1.0.6
+Version: 1.0.7
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -86,7 +86,7 @@ class StatsFC_Form extends WP_Widget {
 						<option></option>
 						<?php
 						foreach ($teams as $row) {
-							echo '<option value="' . esc_attr($row->name) . '"' . ($row->name == $team ? ' selected' : '') . '>' . esc_attr($row->name) . '</option>' . PHP_EOL;
+							echo '<option value="' . esc_attr($row->path) . '"' . ($row->path == $team ? ' selected' : '') . '>' . esc_attr($row->name) . '</option>' . PHP_EOL;
 						}
 						?>
 					</select>

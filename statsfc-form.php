@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: StatsFC Form
-Plugin URI: https://statsfc.com/developers
+Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
 Version: 1.0.7
 Author: Will Woodward

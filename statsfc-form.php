@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.0.7
+Version: 1.1
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2

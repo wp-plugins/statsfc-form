@@ -55,5 +55,7 @@ If you want to place the widget into a page rather than a sidebar:
 
 **1.1**: Updated team badges for 2013/14.
 
+**1.1.1**: Fixed a formatting bug where teams don't have 6 results.
+
 == Upgrade notice ==
 

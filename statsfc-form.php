@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.1.4
+Version: 1.1.5
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -237,16 +237,20 @@ class StatsFC_Form extends WP_Widget {
 									$row->form[] = null;
 								}
 							}
+
+							$position	= esc_attr($row->position);
+							$teamPath	= esc_attr(str_replace(' ', '-', strtolower($row->team)));
+							$teamName	= esc_attr($row->teamshort);
 							?>
 							<tr<?php echo (! empty($classes) ? ' class="' . implode(' ', $classes) . '"' : ''); ?>>
 								<?php
 								if (empty($team)) {
 								?>
-									<td class="statsfc_numeric"><?php echo esc_attr($row->position); ?></td>
+									<td class="statsfc_numeric"><?php echo $position; ?></td>
 								<?php
 								}
 								?>
-								<td class="statsfc_team statsfc_badge_<?php echo str_replace(' ', '', strtolower($row->team)); ?>"><?php echo esc_attr($row->teamshort); ?></td>
+								<td class="statsfc_team" style="background-image: url(//api.statsfc.com/kit/<?php echo $teamPath; ?>.png);"><?php echo $teamName; ?></td>
 								<?php
 								foreach ($row->form as $result) {
 								?>

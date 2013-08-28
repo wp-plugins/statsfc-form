@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,10 @@ If you want to place the widget into a page rather than a sidebar:
 **1.1.4**:
 
 - Added fopen fallback if cURL request fails.
+
+**1.1.5**:
+
+- More reliable team icons.
 
 == Upgrade notice ==
 

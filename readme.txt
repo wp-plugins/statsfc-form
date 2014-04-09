@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.1.6
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,57 +41,33 @@ If you want to place the widget into a page rather than a sidebar:
 
 == Changelog ==
 
-**1.0.1**:
+**1.0.1**: Fixed CSS bugs.
 
-- Fixed CSS bugs.
+**1.0.2**: Fixed possible CSS overlaps.
 
-**1.0.2**:
+**1.0.4**: Changed 'Highlight' option from a textbox to a dropdown.
 
-- Fixed possible CSS overlaps.
+**1.0.5**: Load images from CDN.
 
-**1.0.4**:
+**1.0.6**: Allow the form of a single team to be displayed.
 
-- Changed 'Highlight' option from a textbox to a dropdown.
+**1.0.7**: Fixed a bug when selecting a specific team.
 
-**1.0.5**:
+**1.1**: Updated team badges for 2013/14.
 
-- Load images from CDN.
+**1.1.1**: Fixed a formatting bug where teams don't have 6 results.
 
-**1.0.6**:
+**1.1.2**: Use cURL to fetch API data if possible.
 
-- Allow the form of a single team to be displayed.
+**1.1.3**: Fixed possible cURL bug.
 
-**1.0.7**:
+**1.1.4**: Added fopen fallback if cURL request fails.
 
-- Fixed a bug when selecting a specific team.
+**1.1.5**: More reliable team icons.
 
-**1.1**:
+**1.1.6**: Tweaked error message.
 
-- Updated team badges for 2013/14.
-
-**1.1.1**:
-
-- Fixed a formatting bug where teams don't have 6 results.
-
-**1.1.2**:
-
-- Use cURL to fetch API data if possible.
-
-**1.1.3**:
-
-- Fixed possible cURL bug.
-
-**1.1.4**:
-
-- Added fopen fallback if cURL request fails.
-
-**1.1.5**:
-
-- More reliable team icons.
-
-**1.1.6**:
-
-- Tweaked error message.
+**1.2**: Updated to use new API.
 
 == Upgrade notice ==
 

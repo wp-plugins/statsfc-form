@@ -1,6 +1,7 @@
-.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; margin-bottom: 0; }
+.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; border: 1px solid silver; }
 .statsfc_form th,
 .statsfc_form td {						text-align: left; padding: 2px 5px; border-bottom: 1px solid silver; }
+.statsfc_form thead th {				text-transform: uppercase; font-size: small; background-color: silver; }
 .statsfc_form .statsfc_numeric {		text-align: right; }
 .statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
 .statsfc_form .statsfc_footer {			display: block !important; text-align: right; margin-top: 0; padding: 2px 5px; }

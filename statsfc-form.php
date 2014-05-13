@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.2
+Version: 1.3
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -52,6 +52,7 @@ class StatsFC_Form extends WP_Widget {
 			'api_key'		=> __('', STATSFC_FORM_ID),
 			'competition'	=> __('', STATSFC_FORM_ID),
 			'team'			=> __('', STATSFC_FORM_ID),
+			'date'			=> __('', STATSFC_FORM_ID),
 			'highlight'		=> __('', STATSFC_FORM_ID),
 			'default_css'	=> __('', STATSFC_FORM_ID)
 		);
@@ -61,6 +62,7 @@ class StatsFC_Form extends WP_Widget {
 		$api_key		= strip_tags($instance['api_key']);
 		$competition	= strip_tags($instance['competition']);
 		$team			= strip_tags($instance['team']);
+		$date			= strip_tags($instance['date']);
 		$highlight		= strip_tags($instance['highlight']);
 		$default_css	= strip_tags($instance['default_css']);
 		?>
@@ -118,6 +120,12 @@ class StatsFC_Form extends WP_Widget {
 		</p>
 		<p>
 			<label>
+				<?php _e('Date (YYYY-MM-DD)', STATSFC_FORM_ID); ?>:
+				<input class="widefat" name="<?php echo $this->get_field_name('date'); ?>" type="text" value="<?php echo esc_attr($date); ?>" placeholder="YYYY-MM-DD">
+			</label>
+		</p>
+		<p>
+			<label>
 				<?php _e('Highlight', STATSFC_FORM_ID); ?>:
 				<input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>">
 			</label>
@@ -147,6 +155,7 @@ class StatsFC_Form extends WP_Widget {
 		$instance['api_key']		= strip_tags($new_instance['api_key']);
 		$instance['competition']	= strip_tags($new_instance['competition']);
 		$instance['team']			= strip_tags($new_instance['team']);
+		$instance['date']			= strip_tags($new_instance['date']);
 		$instance['highlight']		= strip_tags($new_instance['highlight']);
 		$instance['default_css']	= strip_tags($new_instance['default_css']);
 
@@ -168,6 +177,7 @@ class StatsFC_Form extends WP_Widget {
 		$api_key		= $instance['api_key'];
 		$competition	= $instance['competition'];
 		$team			= $instance['team'];
+		$date			= $instance['date'];
 		$highlight		= $instance['highlight'];
 		$default_css	= $instance['default_css'];
 
@@ -175,7 +185,7 @@ class StatsFC_Form extends WP_Widget {
 		echo $before_title . $title . $after_title;
 
 		try {
-			$data = $this->_fetchData('https://api.statsfc.com/crowdscores/form.php?key=' . urlencode($api_key) . '&competition=' . urlencode($competition));
+			$data = $this->_fetchData('https://api.statsfc.com/crowdscores/form.php?key=' . urlencode($api_key) . '&competition=' . urlencode($competition) . '&date=' . urlencode($date));
 
 			if (empty($data)) {
 				throw new Exception('There was an error connecting to the StatsFC API');

@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,7 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 - `competition` (required*): Competition key, e.g., `EPL`
 - `team` (required*): Team name, e.g., `Liverpool`
 - `date` (optional): For a back-dated form guide, e.g., `2013-12-31`
+- `limit` (optional): Number of teams to show form for, e.g., `5`, `10`
 - `highlight` (optional): Name of the team you want to highlight, e.g., `Liverpool`
 - `default_css` (optional): Use the default widget styles, `true` or `false`
 
@@ -75,6 +76,8 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 **1.3**: Added a `date` parameter.
 
 **1.4**: Added `[statsfc-form]` shortcode.
+
+**1.5**: Added a `limit` parameter.
 
 == Upgrade notice ==
 

@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.4
+Version: 1.5
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -40,6 +40,7 @@ class StatsFC_Form extends WP_Widget {
 		'competition'	=> '',
 		'team'			=> '',
 		'date'			=> '',
+		'limit'			=> 0,
 		'highlight'		=> '',
 		'default_css'	=> ''
 	);
@@ -65,6 +66,7 @@ class StatsFC_Form extends WP_Widget {
 		$competition	= strip_tags($instance['competition']);
 		$team			= strip_tags($instance['team']);
 		$date			= strip_tags($instance['date']);
+		$limit			= strip_tags($instance['limit']);
 		$highlight		= strip_tags($instance['highlight']);
 		$default_css	= strip_tags($instance['default_css']);
 		?>
@@ -128,6 +130,12 @@ class StatsFC_Form extends WP_Widget {
 		</p>
 		<p>
 			<label>
+				<?php _e('Limit', STATSFC_FORM_ID); ?>:
+				<input class="widefat" name="<?php echo $this->get_field_name('limit'); ?>" type="number" value="<?php echo esc_attr($limit); ?>" min="0" max="99">
+			</label>
+		</p>
+		<p>
+			<label>
 				<?php _e('Highlight', STATSFC_FORM_ID); ?>:
 				<input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>">
 			</label>
@@ -158,6 +166,7 @@ class StatsFC_Form extends WP_Widget {
 		$instance['competition']	= strip_tags($new_instance['competition']);
 		$instance['team']			= strip_tags($new_instance['team']);
 		$instance['date']			= strip_tags($new_instance['date']);
+		$instance['limit']			= strip_tags($new_instance['limit']);
 		$instance['highlight']		= strip_tags($new_instance['highlight']);
 		$instance['default_css']	= strip_tags($new_instance['default_css']);
 
@@ -180,6 +189,7 @@ class StatsFC_Form extends WP_Widget {
 		$competition	= $instance['competition'];
 		$team			= $instance['team'];
 		$date			= $instance['date'];
+		$limit			= $instance['limit'];
 		$highlight		= $instance['highlight'];
 		$default_css	= $instance['default_css'];
 
@@ -187,7 +197,7 @@ class StatsFC_Form extends WP_Widget {
 		$html .= $before_title . $title . $after_title;
 
 		try {
-			$data = $this->_fetchData('https://api.statsfc.com/crowdscores/form.php?key=' . urlencode($key) . '&competition=' . urlencode($competition) . '&date=' . urlencode($date));
+			$data = $this->_fetchData('https://api.statsfc.com/crowdscores/form.php?key=' . urlencode($key) . '&competition=' . urlencode($competition) . '&date=' . urlencode($date) . '&limit=' . urlencode($limit));
 
 			if (empty($data)) {
 				throw new Exception('There was an error connecting to the StatsFC API');

@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,8 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 **1.4**: Added `[statsfc-form]` shortcode.
 
 **1.5**: Added a `limit` parameter.
+
+**1.5.2**: Updated team badges.
 
 == Upgrade notice ==
 

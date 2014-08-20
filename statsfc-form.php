@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.5.1
+Version: 1.5.2
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -261,7 +261,7 @@ HTML;
 					$html .= '<td class="statsfc_numeric">' . esc_attr($row->pos) . '</td>' . PHP_EOL;
 				}
 
-				$html .= '<td class="statsfc_team" style="background-image: url(//api.statsfc.com/kit/' . esc_attr($row->path) . '.png);">' . esc_attr($row->team) . '</td>' . PHP_EOL;
+				$html .= '<td class="statsfc_team" style="background-image: url(//api.statsfc.com/kit/' . esc_attr($row->path) . '.svg);">' . esc_attr($row->team) . '</td>' . PHP_EOL;
 
 				foreach ($row->form as $result) {
 					$html .= '<td class="statsfc_form_results">' . PHP_EOL;

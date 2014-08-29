@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/docs/wordpress
 Description: StatsFC Form Guide
-Version: 1.5.2
+Version: 1.5.3
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -42,7 +42,7 @@ class StatsFC_Form extends WP_Widget {
 		'date'			=> '',
 		'limit'			=> 0,
 		'highlight'		=> '',
-		'default_css'	=> ''
+		'default_css'	=> true
 	);
 
 	/**
@@ -191,7 +191,7 @@ class StatsFC_Form extends WP_Widget {
 		$date			= $instance['date'];
 		$limit			= $instance['limit'];
 		$highlight		= $instance['highlight'];
-		$default_css	= $instance['default_css'];
+		$default_css	= filter_var($instance['default_css'], FILTER_VALIDATE_BOOLEAN);
 
 		$html  = $before_widget;
 		$html .= $before_title . $title . $after_title;

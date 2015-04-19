@@ -4,7 +4,6 @@
 .statsfc_form thead th {				text-transform: uppercase; font-size: small; background-color: silver; }
 .statsfc_form .statsfc_numeric {		text-align: right; }
 .statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
-.statsfc_form .statsfc_ad {				display: block !important; text-align: center; margin-top: 10px; }
 .statsfc_form .statsfc_footer {			display: block !important; text-align: right; }
 
 .statsfc_form .statsfc_form_results {		padding: 2px; }

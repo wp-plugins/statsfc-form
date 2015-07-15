@@ -1,15 +1,16 @@
-.statsfc_form table {					display: table; width: 100%; border-collapse: collapse; }
-.statsfc_form th,
-.statsfc_form td {						text-align: left; padding: 2px 5px; }
-.statsfc_form thead th {				text-transform: uppercase; font-size: small; background-color: silver; }
-.statsfc_form .statsfc_numeric {		text-align: right; }
-.statsfc_form .statsfc_highlight td {	font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
-.statsfc_form .statsfc_footer {			display: block !important; text-align: right; }
+div.sfc_form table {                display: table; width: 100%; border-collapse: collapse; }
+div.sfc_form th,
+div.sfc_form td {                   text-align: left; padding: 2px 5px; }
+div.sfc_form thead th {             text-transform: uppercase; font-size: small; background-color: silver; }
+div.sfc_form .sfc_numeric {         text-align: right; }
+div.sfc_form .sfc_team {            width: 100%; }
+div.sfc_form td.sfc_form {          white-space: nowrap; }
+div.sfc_form td span {              display: inline-block; width: 1.5em; margin-right: 5px; text-align: center; border-radius: 5px; color: #f8f8f8; }
+div.sfc_form span.sfc_W {           background: #2A2; }
+div.sfc_form span.sfc_D {           background: orange; }
+div.sfc_form span.sfc_L {           background: #F33; }
+div.sfc_form abbr {                 cursor: help; }
+div.sfc_form tr.sfc_highlight td {  font-weight: bold; border-top: 2px solid black; border-bottom: 2px solid black; }
+div.sfc_form div.sfc_footer {       display: block !important; text-align: right; }
 
-.statsfc_form .statsfc_form_results {		padding: 2px; }
-.statsfc_form .statsfc_form_results span {	display: inline-block; width: 1.5em; text-align: center; border-radius: 5px; color: #f8f8f8; }
-.statsfc_form .statsfc_w {					background: #2A2; }
-.statsfc_form .statsfc_d {					background: orange; }
-.statsfc_form .statsfc_l {					background: #F33; }
-
-.statsfc_form .statsfc_team {	width: 100%; background-repeat: no-repeat; background-position: center left; background-size: 20px 20px; line-height: 25px; padding-left: 25px !important; }
+div.sfc_form td.sfc_team {          background-repeat: no-repeat; background-position: center left; background-size: 20px 20px; line-height: 25px; padding-left: 25px !important; }

@@ -3,16 +3,16 @@ Contributors: willjw
 Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
-Tested up to: 4.0
-Stable tag: 1.6.1
+Tested up to: 4.2.2
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This widget will place a live Premier League form guide in your website.
+This widget will place a current football form guide in your website.
 
 == Description ==
 
-Add a Premier League form guide to your WordPress website. To request a key sign up for your free trial at [statsfc.com](https://statsfc.com).
+Add a football form guide to your WordPress website. To request a key sign up for your free trial at [statsfc.com](https://statsfc.com/sign-up).
 
 For a demo, check out [wp.statsfc.com/form/](http://wp.statsfc.com/form/).
 
@@ -27,13 +27,12 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 
 - `key` (required): Your StatsFC key
 - `competition` (required*): Competition key, e.g., `EPL`
-- `team` (required*): Team name, e.g., `Liverpool`
 - `date` (optional): For a back-dated form guide, e.g., `2013-12-31`
 - `limit` (optional): Number of teams to show form for, e.g., `5`, `10`
 - `highlight` (optional): Name of the team you want to highlight, e.g., `Liverpool`
+- `show_badges` (optional): Display team badges, `true` or `false`
+- `show_score` (optional): Display match scores (on mouse over), `true` or `false`
 - `default_css` (optional): Use the default widget styles, `true` or `false`
-
-*Only one of `competition` or `team` is required.
 
 == Frequently asked questions ==
 
@@ -90,6 +89,8 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 **1.6**: Enabled ad-support
 
 **1.6.1**: Allow more discrete ads for ad-supported accounts
+
+**1.7**: Added `show_badges` and `show_score` options; removed `team` option
 
 == Upgrade notice ==
 

@@ -80,55 +80,55 @@ class StatsFC_Form extends WP_Widget
         ?>
         <p>
             <label>
-                Title
+                <?php _e('Title', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
             </label>
         </p>
         <p>
             <label>
-                Key
+                <?php _e('Key', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('key'); ?>" type="text" value="<?php echo esc_attr($key); ?>">
             </label>
         </p>
         <p>
             <label>
-                Competition
+                <?php _e('Competition', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('competition'); ?>" type="text" value="<?php echo esc_attr($competition); ?>" placeholder="e.g., EPL, CHP, FAC">
             </label>
         </p>
         <p>
             <label>
-                Date
+                <?php _e('Date', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('date'); ?>" type="text" value="<?php echo esc_attr($date); ?>" placeholder="YYYY-MM-DD">
             </label>
         </p>
         <p>
             <label>
-                Highlight team
+                <?php _e('Highlight team', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('highlight'); ?>" type="text" value="<?php echo esc_attr($highlight); ?>" placeholder="e.g., Liverpool, Manchester City">
             </label>
         </p>
         <p>
             <label>
-                Show badges?
+                <?php _e('Show badges?', STATSFC_FORM_ID); ?>
                 <input type="checkbox" name="<?php echo $this->get_field_name('show_badges'); ?>"<?php echo ($show_badges == 'on' ? ' checked' : ''); ?>>
             </label>
         </p>
         <p>
             <label>
-                Show match scores?
+                <?php _e('Show match scores?', STATSFC_FORM_ID); ?>
                 <input type="checkbox" name="<?php echo $this->get_field_name('show_score'); ?>"<?php echo ($show_score == 'on' ? ' checked' : ''); ?>>
             </label>
         </p>
         <p>
             <label>
-                Limit
+                <?php _e('Limit', STATSFC_FORM_ID); ?>
                 <input class="widefat" name="<?php echo $this->get_field_name('limit'); ?>" type="number" value="<?php echo esc_attr($limit); ?>" min="0" max="99">
             </label>
         </p>
         <p>
             <label>
-                Use default styles?
+                <?php _e('Use default styles?', STATSFC_FORM_ID); ?>
                 <input type="checkbox" name="<?php echo $this->get_field_name('default_css'); ?>"<?php echo ($default_css == 'on' ? ' checked' : ''); ?>>
             </label>
         </p>

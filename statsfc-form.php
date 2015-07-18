@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/widgets/form
 Description: StatsFC Form Guide
-Version: 1.7.1
+Version: 1.7.2
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -27,7 +27,7 @@ License: GPL2
 
 define('STATSFC_FORM_ID',      'StatsFC_Form');
 define('STATSFC_FORM_NAME',    'StatsFC Form');
-define('STATSFC_FORM_VERSION', '1.7.1');
+define('STATSFC_FORM_VERSION', '1.7.2');
 
 /**
  * Adds StatsFC widget.

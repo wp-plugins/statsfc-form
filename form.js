@@ -31,8 +31,8 @@ function StatsFC_Form(key) {
         // Store globals variables here so we can use it later.
         var domain     = this.domain;
         var highlight  = this.highlight;
-        var showBadges = this.showBadges;
-        var showScore  = this.showScore;
+        var showBadges = (this.showBadges === true || this.showBadges === 'true');
+        var showScore  = (this.showScore === true || this.showScore === 'true');
 
         $j.getJSON(
             domain + '/crowdscores/form.php?callback=?',

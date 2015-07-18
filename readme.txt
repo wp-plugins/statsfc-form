@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.7
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,6 +91,8 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 **1.6.1**: Allow more discrete ads for ad-supported accounts
 
 **1.7**: Added `show_badges` and `show_score` options; removed `team` option
+
+**1.7.1**: Fixed bug with multiple widgets on one page
 
 == Upgrade notice ==
 

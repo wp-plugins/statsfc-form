@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/widgets/form
 Description: StatsFC Form Guide
-Version: 1.7
+Version: 1.7.1
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -25,9 +25,9 @@ License: GPL2
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define('STATSFC_FORM_ID',       'StatsFC_Form');
-define('STATSFC_FORM_NAME',       'StatsFC Form');
-define('STATSFC_FORM_VERSION', '1.8');
+define('STATSFC_FORM_ID',      'StatsFC_Form');
+define('STATSFC_FORM_NAME',    'StatsFC Form');
+define('STATSFC_FORM_VERSION', '1.7.1');
 
 /**
  * Adds StatsFC widget.
@@ -207,26 +207,24 @@ class StatsFC_Form extends WP_Widget
         // Enqueue widget JS
         $object = 'statsfc_form_' . $unique_id;
 
-        $GLOBALS['statsfc_form_init']  = '<script>' . PHP_EOL;
-        $GLOBALS['statsfc_form_init'] .= 'var ' . $object . ' = new StatsFC_Form(' . json_encode($key) . ');' . PHP_EOL;
-        $GLOBALS['statsfc_form_init'] .= $object . '.referer = ' . json_encode($referer) . ';' . PHP_EOL;
+        $script  = '<script>' . PHP_EOL;
+        $script .= 'var ' . $object . ' = new StatsFC_Form(' . json_encode($key) . ');' . PHP_EOL;
+        $script .= $object . '.referer = ' . json_encode($referer) . ';' . PHP_EOL;
 
         foreach ($whitelist as $parameter) {
             if (! array_key_exists($parameter, $options)) {
                 continue;
             }
 
-            $GLOBALS['statsfc_form_init'] .= $object . '.' . $parameter . ' = ' . json_encode($options[$parameter]) . ';' . PHP_EOL;
+            $script .= $object . '.' . $parameter . ' = ' . json_encode($options[$parameter]) . ';' . PHP_EOL;
         }
 
-        $GLOBALS['statsfc_form_init'] .= $object . '.display("statsfc-form-' . $unique_id . '");' . PHP_EOL;
-        $GLOBALS['statsfc_form_init'] .= '</script>';
+        $script .= $object . '.display("statsfc-form-' . $unique_id . '");' . PHP_EOL;
+        $script .= '</script>';
 
-        add_action('wp_print_footer_scripts', function()
+        add_action('wp_print_footer_scripts', function() use ($script)
         {
-            global $statsfc_form_init;
-
-            echo $statsfc_form_init;
+            echo $script;
         });
 
         if ($this->isShortcode) {

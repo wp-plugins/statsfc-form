@@ -3,7 +3,7 @@
 Plugin Name: StatsFC Form
 Plugin URI: https://statsfc.com/widgets/form
 Description: StatsFC Form Guide
-Version: 1.7.2
+Version: 1.7.3
 Author: Will Woodward
 Author URI: http://willjw.co.uk
 License: GPL2
@@ -27,7 +27,7 @@ License: GPL2
 
 define('STATSFC_FORM_ID',      'StatsFC_Form');
 define('STATSFC_FORM_NAME',    'StatsFC Form');
-define('STATSFC_FORM_VERSION', '1.7.2');
+define('STATSFC_FORM_VERSION', '1.7.3');
 
 /**
  * Adds StatsFC widget.
@@ -177,7 +177,7 @@ class StatsFC_Form extends WP_Widget
         $whitelist   = array('competition', 'date', 'highlight', 'showBadges', 'showScore', 'limit');
         $unique_id   = ++static::$count;
         $key         = $instance['key'];
-        $referer     = (array_key_exists('HTTP_REFERER', $_SERVER) ? parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) : '');
+        $referer     = (array_key_exists('HTTP_HOST', $_SERVER) ? $_SERVER['HTTP_HOST'] : '');
         $default_css = filter_var($instance['default_css'], FILTER_VALIDATE_BOOLEAN);
 
         $options = array(

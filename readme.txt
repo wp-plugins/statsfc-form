@@ -4,7 +4,7 @@ Donate link:
 Tags: widget, football, soccer, premier league
 Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,8 @@ You can also use the `[statsfc-form]` shortcode, with the following options:
 **1.7.1**: Fixed bug with multiple widgets on one page
 
 **1.7.2**: Fixed bug with boolean options
+
+**1.7.3**: Fixed "Invalid domain" bug caused by referal domain
 
 == Upgrade notice ==
 
